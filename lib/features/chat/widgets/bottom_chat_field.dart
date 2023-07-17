@@ -110,15 +110,16 @@ class _BottomChatFieldState extends ConsumerState<BottomChatField> {
   }
 
   void selectGIF() async {
-    final gif = await pickGIF(context);
-    if (gif != null) {
-      ref.read(chatControllerProvider).sendGIFMessage(
-            context,
-            gif.url,
-            widget.recieverUserId,
-            widget.isGroupChat,
-          );
-    }
+    print("------- FIX ME: Select GIF not working because library is not compatible -------");
+    // final gif = await pickGIF(context);
+    // if (gif != null) {
+    //   ref.read(chatControllerProvider).sendGIFMessage(
+    //         context,
+    //         gif.url,
+    //         widget.recieverUserId,
+    //         widget.isGroupChat,
+    //       );
+    // }
   }
 
   void hideEmojiContainer() {

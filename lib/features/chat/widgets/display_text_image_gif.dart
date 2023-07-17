@@ -39,7 +39,8 @@ class DisplayTextImageGIF extends StatelessWidget {
                         isPlaying = false;
                       });
                     } else {
-                      await audioPlayer.play(UrlSource(message));
+                      print("ERROR: Using deprecated library");
+                      await audioPlayer.play(message);
                       setState(() {
                         isPlaying = true;
                       });

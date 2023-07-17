@@ -38,11 +38,17 @@ class SelectContactRepository {
 
       for (var document in userCollection.docs) {
         var userData = UserModel.fromMap(document.data());
+        print("Raw Selected Phone Number: ${selectedContact.phones[0].number}");
         String selectedPhoneNum = selectedContact.phones[0].number.replaceAll(
-          ' ',
+          RegExp(r'\D'),
           '',
         );
-        if (selectedPhoneNum == userData.phoneNumber) {
+        print("Processed Selected Phone Number: $selectedPhoneNum");
+        print("Current User's Phone Number: ${userData.phoneNumber.replaceAll(RegExp(r'\D'), '')}");
+
+        if (selectedPhoneNum ==
+            userData.phoneNumber.replaceAll(RegExp(r'\D'), '')) {
+          print("Success!!");
           isFound = true;
           Navigator.pushNamed(
             context,
@@ -52,6 +58,7 @@ class SelectContactRepository {
               'uid': userData.uid,
             },
           );
+          break;
         }
       }
 
